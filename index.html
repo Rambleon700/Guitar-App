@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beginner Guitar Hub – Easy Songs, Chords & Strumming</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">🎸</span>
+        <div>
+          <h1>Beginner Guitar Hub</h1>
+          <p class="tagline">Easy songs • Clear chords • Strumming patterns</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <button class="nav-btn active" data-section="songs">Songs</button>
+        <button class="nav-btn" data-section="chords">Chords</button>
+        <button class="nav-btn" data-section="patterns">Patterns</button>
+        <button class="nav-btn" data-section="practice">Practice</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="songs" class="section active">
+        <div class="section-header">
+          <h2>Easy Songs for Beginners</h2>
+          <p>Start with 2-chord songs and work your way up. All use open chords only — no barre chords.</p>
+        </div>
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="2">2 Chords</button>
+          <button class="filter-btn" data-filter="3">3 Chords</button>
+          <button class="filter-btn" data-filter="4">4+ Chords</button>
+        </div>
+        <div class="songs-grid" id="songs-grid"></div>
+      </section>
+
+      <section id="chords" class="section">
+        <div class="section-header">
+          <h2>Essential Beginner Chords</h2>
+          <p>Master these open chords and you can play hundreds of songs. Click a chord for a quick tip.</p>
+        </div>
+        <div class="chords-grid" id="chords-grid"></div>
+        <div class="chord-tips">
+          <h3>Tips for clean chords</h3>
+          <ul>
+            <li>Press just behind the fret (not on top of it).</li>
+            <li>Arch your fingers so neighboring strings stay open.</li>
+            <li>Start slow — clarity beats speed every time.</li>
+            <li>Practice switching between two chords until it feels automatic.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="patterns" class="section">
+        <div class="section-header">
+          <h2>Essential Strumming Patterns</h2>
+          <p>Keep your wrist loose and your arm moving like a pendulum — even on the silent beats.</p>
+        </div>
+        <div class="patterns-list" id="patterns-list"></div>
+      </section>
+
+      <section id="practice" class="section">
+        <div class="section-header">
+          <h2>Practice Mode</h2>
+          <p>Pick a song or pattern, set a tempo, and follow the visual guide.</p>
+        </div>
+        <div class="practice-panel">
+          <div class="practice-controls">
+            <label>
+              Song / Pattern
+              <select id="practice-select"></select>
+            </label>
+            <label>
+              Tempo (BPM)
+              <input type="range" id="tempo" min="40" max="140" value="70">
+              <span id="tempo-value">70</span>
+            </label>
+            <div class="btn-row">
+              <button id="play-btn" class="primary-btn">▶ Start</button>
+              <button id="stop-btn" class="secondary-btn" disabled>■ Stop</button>
+            </div>
+          </div>
+          <div class="visualizer">
+            <div class="beat-lights" id="beat-lights">
+              <div class="beat" data-beat="1">1</div>
+              <div class="beat" data-beat="2">2</div>
+              <div class="beat" data-beat="3">3</div>
+              <div class="beat" data-beat="4">4</div>
+            </div>
+            <div class="strum-display" id="strum-display">
+              <span class="strum-arrow">↓</span>
+            </div>
+            <div class="current-chord" id="current-chord">—</div>
+            <div class="pattern-text" id="pattern-text"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Practice 10–15 minutes a day. Consistency beats long sessions.</p>
+      <p class="small">Built for absolute beginners • Open chords only</p>
+    </footer>
+  </div>
+
+  <div class="modal" id="song-modal">
+    <div class="modal-content">
+      <button class="close-btn" id="close-modal">×</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
